@@ -65,7 +65,7 @@ app.set( 'port', port );
 server.listen( port, function () {
   console.log( "(----------------------------------------)" );
   console.log( "|          Server Started at...          |" );
-  console.log( "|          http://localhost:" + port + "          |" );
+  console.log( "|          http://localhost:" + port + "         |" );
   console.log( "(----------------------------------------)" );
 } );
 //End: Server connection
