@@ -6,7 +6,7 @@ module.exports = {
 	"WonGreyMultiplier": 2,
 	"WonDangerMultiplier": 2,
 	"WonGreenMultiplier": 14,
-	"jwt_secret": "rouletteam5ds7s3s6sd2s8d",
+	"jwt_secret": "rouletteforhiringproject",
 	"jwt_expire": "365d",
 	"adminWallet": "",
 };
