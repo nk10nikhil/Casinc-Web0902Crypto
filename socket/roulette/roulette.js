@@ -6,9 +6,17 @@ module.exports = function (config) {
 	module.gameCount = async function (callback) {
 		try {
 			var gamaStartInterval = setInterval(function () {
-				var gameCount = { "status": "fail" };
-				clearInterval(gamaStartInterval);
-				return callback(gameCount);
+				if (gameStartCount <= 0.0) {
+					clearInterval(gamaStartInterval);
+					gameStartCount = config.rouletteStartTime;
+					return callback({ "status": "start" });
+
+				} else {
+					let width = (config.rouletteStartTime - gameStartCount) / parseFloat(config.rouletteStartTime) * 100;
+					var response = { "status": "success", "count": gameStartCount, width: width };
+					gameStartCount -= 1;
+					return callback(response);
+				}
 			}, 1000);
 		} catch (error) {
 			console.log("Error when game start count down start: ", error);
@@ -31,7 +39,7 @@ module.exports = function (config) {
 
 	module.rouletteLogic = async function (callback) {
 		try {
-			var gameNumber = helper.getNextIntNumber(new date());
+			var gameNumber = helper.getNextIntNumber(new Date());
 			let public_seed = helper.randomOnlyNumber(10);
 			let server_seed = helper.randomString(64);
 			var gameSecret = public_seed;
@@ -81,21 +89,6 @@ module.exports = function (config) {
 			} else if (roll == 2 || roll == 4 || roll == 6 || roll == 8 || roll == 10 || roll == 12 || roll == 14) {
 				roll_colour = 'black';
 				wamt = config.WonGreyMultiplier;
-			}
-			var checkamt = parseFloat(getrouletteDetail.bet_amount) + parseFloat(getrouletteDetail.total_amt_carryforward);
-
-			if (true) {
-				var totalWinAmt = parseFloat(getStopColor[ 0 ].bet_amount) * parseInt(wamt);
-				if (checkamt < totalWinAmt) {
-					if (roll_colour == 'danger') {
-						var myArray = [ "black", "green" ];
-					} else if (roll_colour == 'black') {
-						var myArray = [ "danger", "green" ];
-					} else if (roll_colour == 'green') {
-						var myArray = [ "danger", "black" ];
-					}
-					roll_colour = myArray[ Math.floor(Math.random() * myArray.length) ];
-				}
 			}
 
 			var winColor = [ roll_colour /* "green" */ ];
