@@ -35,9 +35,3 @@
 # Assessment
 
 To begin the upgrading process, assess the current state of this project. Identify the areas that require improvement and determine the impact of the upgrade on this project's functionality. This assessment will serve as a foundation for the planning phase.
-
-# Planning
-
-1. The project currently works with web3 only and does not have a smart contract in place to manage payments. Therefore, the project team recognizes the risk associated with this setup and plans to implement a smart contract to handle payment management.
-
-2. The project currently uses an older version of the Vanilla JS library for the frontend. However, the team recognizes the challenges of integrating web3 functionality with this setup. To address this, they plan to upgrade from Vanilla JS to ReactJS or Next.js. This upgrade will provide a more structured and efficient development environment, making it easier to integrate web3 functionality into the project. ReactJS and Next.js offer built-in support for managing state, handling component rendering, and interacting with APIs, which can simplify the implementation of web3 integrations.

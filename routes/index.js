@@ -1,4 +1,4 @@
-module.exports = function ( app, controllers ) {
-	require( './admin.js' )( app, controllers.admin );
-	require( './web.js' )( app, controllers.web );
+module.exports = function (app, controllers) {
+	require('./admin.js')(app, controllers.admin);
+	require('./web.js')(app, controllers.web);
 };	

@@ -17,9 +17,6 @@ function ResetView ( WindowWidth, WindowHeight ) {
   var chattitle = $( ".chatbar_title" ).height();
   var chatmessagebox = $( ".chatbar_message_box" ).innerHeight();
   var footerheight = $( "footer" ).innerHeight();
-
-
-
   if ( WindowWidth > 991 ) {
     var totalVal = parseInt( headerheight + chattitle + chatmessagebox + footerheight + 80 );
     var c_heigt = WindowHeight - totalVal;
@@ -48,7 +45,6 @@ function ResetView ( WindowWidth, WindowHeight ) {
     } );
   }
   else if ( WindowWidth > 300 && WindowWidth < 500 ) {
-
     var totalVal = parseInt( headerheight + footerheight + 33 );
     var c_heigt = WindowHeight - totalVal;
     c_heigt = c_heigt + 40;
