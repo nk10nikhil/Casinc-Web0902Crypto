@@ -1,5 +1,6 @@
 var sha224 = require( 'js-sha256' ).sha224;
 var CryptoJS = require( "crypto-js" );
+
 module.exports.gameNumber = function ( length ) {
 	var chars = '0123456789';
 	var result = '';

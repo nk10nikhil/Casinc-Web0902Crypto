@@ -3,7 +3,7 @@ module.exports = function ( config ) {
 	module.view = async function ( req, res ) {
 		try {
 			if ( req.session.user.id ) {
-				req.flash( 'error', "Please login." );
+				req.flash( 'error', "The session has been expired, please login again." );
 				res.redirect( '/login' );
 			}
 		} catch ( error ) {

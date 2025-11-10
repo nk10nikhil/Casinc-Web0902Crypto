@@ -2,9 +2,7 @@ module.exports = function ( config ) {
 	var module = {};
 	module.login = async function ( req, res ) {
 		try {
-			console.log( 'walletID -->', req.body.walletId );
 			if ( true ) {
-				console.log( 'New register......' );
 				return res.send( JSON.stringify( { "status": 'success', 'message': 'Login successfully' } ) );
 			}
 		} catch ( error ) {
