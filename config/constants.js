@@ -9,4 +9,5 @@ module.exports = {
 	"jwt_secret": "rouletteforhiringproject",
 	"jwt_expire": "365d",
 	"adminWallet": "",
+	"walletClusterApiUrl": "devnet"
 };
