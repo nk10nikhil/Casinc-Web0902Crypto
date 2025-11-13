@@ -1,5 +1,4 @@
-{% extends "frontend/partials/layout.njk" %} {% block style %}{% endblock %} {%
-block body %}
+{% extends "frontend/partials/layout.njk" %} {% block style %}{% endblock %} {%block body %}
 <section class="main_wrap">
 	<div class="chatbar">
 		<div class="chatbar_title">
@@ -12,48 +11,20 @@ block body %}
 			</div>
 		</div>
 
-		<div
-			class="charbar_message_list"
-			id="chatscroll"></div>
+		<div class="charbar_message_list"	id="chatscroll"></div>
 		<div class="chatbar_message_box">
 			{% if(auth.user) %}
-			<a
-				href="javascript:void(0);"
-				data-toggle="modal"
-				data-target="#chatrule"
-				onClick="checkrules();"
-				><button
-					type="button"
-					class="btn dote"
-					data-container="body"
-					data-toggle="popover"
-					data-placement="left"
-					data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
-					<i
-						class="fa fa-ellipsis-v"
-						aria-hidden="true"></i></button
-			></a>
+			<a href="javascript:void(0);"	data-toggle="modal"	data-target="#chatrule"	onClick="checkrules();">
+				<button	type="button"	class="btn dote" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+					<i class="fa fa-ellipsis-v"	aria-hidden="true"></i>
+				</button>
+			</a>
 			{% endif %}
-			<input
-				type="text"
-				class="form-control chat_message_div"
-				{%
-				if(auth.user)
-				%}
-				placeholder="Please enter message to start conversation"
-				{%
-				else
-				%}
-				placeholder="You must be logged in to chat."
-				{%
-				endif
-				%} />
-			<button
-				class="btn btn-send"
-				onclick="chatMessageSave()">
-				<span class="mtrlicsend"
-					><img src="/frontend/img/send_icons_chat.png"
-				/></span>
+			<input type="text" class="form-control chat_message_div" {%if(auth.user)%} placeholder="Please enter message to start conversation"	{%else %}	placeholder="You must be logged in to chat." {% endif	%} />
+			<button	class="btn btn-send" onclick="chatMessageSave()">
+				<span class="mtrlicsend">
+					<img src="/frontend/img/send_icons_chat.png"/>
+				</span>
 			</button>
 		</div>
 	</div>
@@ -62,50 +33,24 @@ block body %}
 		<div class="container-fluid">
 			<div class="main_part profile_wrap">
 				<div class="login_signup_modal">
-					<form
-						method="post"
-						action="/save"
-						enctype="multipart/form-data">
+					<form	method="post"	action="/save" enctype="multipart/form-data">
 						<div class="row">
 							<div class="col-lg-12">
-								<div class="text-center">
-									<div class="modal-logo">Profile</div>
-								</div>
-								<div class="profile_img">
-									<img
-										src="/frontend/upload/user/{{auth.user.profile_image}}" />
-								</div>
-
+								<div class="text-center"><div class="modal-logo">Profile</div></div>
+								<div class="profile_img"><img src="/frontend/upload/user/{{auth.user.profile_image}}" /></div>
 								<div class="form-group">
-									<input
-										type="text"
-										name="name"
-										id="name"
-										class="form-control"
-										placeholder="Please enter name."
-										value="{{auth.user.name}}"
-										required />
+									<input type="text" name="name" id="name" class="form-control"	placeholder="Please enter name." value="{{auth.user.name}}" required />
 								</div>
-
 								<div class="Choose_file">
 									<div class="custom-file-upload">
-										<input
-											type="file"
-											id="file"
-											placeholder="Profile Picture"
-											name="myfiles"
-											accept="image/png, image/jpeg" />
+										<input type="file" id="file" placeholder="Profile Picture" name="myfiles"	accept="image/png, image/jpeg" />
 									</div>
 								</div>
 								<span class="only_format">Only allow image png, jpeg</span>
 							</div>
 						</div>
 						<div class="col-lg-8 col-md-8 col-sm-9 mr-auto ml-auto mt-4">
-							<button
-								type="submit"
-								class="btn btn-orange-yellow btn-block">
-								Submit
-							</button>
+							<button	type="submit"	class="btn btn-orange-yellow btn-block">Submit</button>
 						</div>
 					</form>
 				</div>
