@@ -1,7 +1,5 @@
 $('.chat_message_div').on("keypress", function (e) {
-	if (e.keyCode == 13) {
-		chatMessageSave();
-	}
+	if (e.keyCode == 13) chatMessageSave();
 });
 
 socket.on('appentNewMessageAllUser', async (res, lastMessage) => {
@@ -57,7 +55,7 @@ function getChatMessage () {
 			$('.charbar_message_list').html('');
 			for (var i = 0; i < response.data.length; i++) {
 					var detail = response.data[ i ];
-					chatHtml += await chatMessageHtml(detail, response.moderatorUser);
+					chatHtml += chatMessageHtml(detail, response.moderatorUser);
 			}
 			$('.charbar_message_list').html(chatHtml);
 		}
