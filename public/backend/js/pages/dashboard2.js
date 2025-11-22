@@ -1,20 +1,16 @@
-$( function () {
-
+$(function () {
   'use strict';
-
   /* ChartJS
    * -------
    * Here we will create a few charts using ChartJS
    */
-
   // -----------------------
   // - MONTHLY SALES CHART -
   // -----------------------
-
   // Get context with jQuery - using jQuery's .get() method.
-  var salesChartCanvas = $( '#salesChart' ).get( 0 ).getContext( '2d' );
+  var salesChartCanvas = $('#salesChart').get(0).getContext('2d');
   // This will get the first returned node in the jQuery collection.
-  var salesChart = new Chart( salesChartCanvas );
+  var salesChart = new Chart(salesChartCanvas);
 
   var salesChartData = {
     labels: [ 'January', 'February', 'March', 'April', 'May', 'June', 'July' ],
@@ -82,7 +78,7 @@ $( function () {
   };
 
   // Create the line chart
-  salesChart.Line( salesChartData, salesChartOptions );
+  salesChart.Line(salesChartData, salesChartOptions);
 
   // ---------------------------
   // - END MONTHLY SALES CHART -
@@ -92,8 +88,8 @@ $( function () {
   // - PIE CHART -
   // -------------
   // Get context with jQuery - using jQuery's .get() method.
-  var pieChartCanvas = $( '#pieChart' ).get( 0 ).getContext( '2d' );
-  var pieChart = new Chart( pieChartCanvas );
+  var pieChartCanvas = $('#pieChart').get(0).getContext('2d');
+  var pieChart = new Chart(pieChartCanvas);
   var PieData = [
     {
       value: 700,
@@ -160,7 +156,7 @@ $( function () {
   };
   // Create pie or douhnut chart
   // You can switch between pie and douhnut using the method below.
-  pieChart.Doughnut( PieData, pieOptions );
+  pieChart.Doughnut(PieData, pieOptions);
   // -----------------
   // - END PIE CHART -
   // -----------------
@@ -169,7 +165,7 @@ $( function () {
    * ------------
    * Create a world map with markers
    */
-  $( '#world-map-markers' ).vectorMap( {
+  $('#world-map-markers').vectorMap({
     map: 'world_mill_en',
     normalizeFunction: 'polynomial',
     hoverOpacity: 0.7,
@@ -226,7 +222,7 @@ $( function () {
       { latLng: [ 26.02, 50.55 ], name: 'Bahrain' },
       { latLng: [ 0.33, 6.73 ], name: 'São Tomé and Príncipe' }
     ]
-  } );
+  });
 
   /* SPARKLINE CHARTS
    * ----------------
@@ -236,39 +232,39 @@ $( function () {
   // -----------------
   // - SPARKLINE BAR -
   // -----------------
-  $( '.sparkbar' ).each( function () {
-    var $this = $( this );
-    $this.sparkline( 'html', {
+  $('.sparkbar').each(function () {
+    var $this = $(this);
+    $this.sparkline('html', {
       type: 'bar',
-      height: $this.data( 'height' ) ? $this.data( 'height' ) : '30',
-      barColor: $this.data( 'color' )
-    } );
-  } );
+      height: $this.data('height') ? $this.data('height') : '30',
+      barColor: $this.data('color')
+    });
+  });
 
   // -----------------
   // - SPARKLINE PIE -
   // -----------------
-  $( '.sparkpie' ).each( function () {
-    var $this = $( this );
-    $this.sparkline( 'html', {
+  $('.sparkpie').each(function () {
+    var $this = $(this);
+    $this.sparkline('html', {
       type: 'pie',
-      height: $this.data( 'height' ) ? $this.data( 'height' ) : '90',
-      sliceColors: $this.data( 'color' )
-    } );
-  } );
+      height: $this.data('height') ? $this.data('height') : '90',
+      sliceColors: $this.data('color')
+    });
+  });
 
   // ------------------
   // - SPARKLINE LINE -
   // ------------------
-  $( '.sparkline' ).each( function () {
-    var $this = $( this );
-    $this.sparkline( 'html', {
+  $('.sparkline').each(function () {
+    var $this = $(this);
+    $this.sparkline('html', {
       type: 'line',
-      height: $this.data( 'height' ) ? $this.data( 'height' ) : '90',
+      height: $this.data('height') ? $this.data('height') : '90',
       width: '100%',
-      lineColor: $this.data( 'linecolor' ),
-      fillColor: $this.data( 'fillcolor' ),
-      spotColor: $this.data( 'spotcolor' )
-    } );
-  } );
-} );
+      lineColor: $this.data('linecolor'),
+      fillColor: $this.data('fillcolor'),
+      spotColor: $this.data('spotcolor')
+    });
+  });
+});
