@@ -28,12 +28,6 @@ module.exports = function (io, client) {
 		io.emit('count', logIndata);
 	});
 
-	client.on('getSetting', async function (callback) {
-	});
-
-	client.on('getcmsDetail', async function (data, callback) {
-	});
-
 	client.on('supportmailSend', async function (data, callback) {
 		try {
 			var transporter = nodemailer.createTransport({
@@ -79,7 +73,7 @@ module.exports = function (io, client) {
 	client.on('chatRuleAccept', async function (data, callback) {
 		try {
 			var userId = data.userId;
-			return callback({ 'status': 'fail' });
+			return callback({ 'status': 'success' });
 		} catch (error) {
 			return callback({ status: "fail", data: '' });
 		}

@@ -1,4 +1,3 @@
-var striptags = require('striptags');
 module.exports = function () {
 	var module = {};
 	module.getMessages = async function (callback) {

@@ -95,40 +95,28 @@ module.exports = function (config) {
 			var winColorClassObj = { "black": "dark-gradiant", "green": "success-gradiant", "danger": "danger-gradiant" };
 			let rouletteStopPosition = Math.rand(6190, 6270);
 			let winData = '';
-			let minWonAmt = 0;
 
 			if (winColor.length) {
 				var winnerColor = winColor[ 0 ];
 				if (winnerColor == "green") {
 					rouletteStopPosition = 6441;
-					console.log('rouletteStopPosition -->', rouletteStopPosition);
 					var replacenumber = cases[ 74 ];
 					replacenumber[ replacenumber.indexOf(replacenumber[ 1 ]) ] = roll.toString();
 					replacenumber[ replacenumber.indexOf(replacenumber[ 0 ]) ] = 'success-gradiant';
 					winData = replacenumber;
-					console.log('winData -->', winData);
-					console.log('-----------------------------------------');
 				} else if (winnerColor == "black") {
 					rouletteStopPosition = 5970;
-					console.log('rouletteStopPosition -->', rouletteStopPosition);
 					var replacenumber = cases[ 69 ];
 					replacenumber[ replacenumber.indexOf(replacenumber[ 1 ]) ] = roll.toString();
 					replacenumber[ replacenumber.indexOf(replacenumber[ 0 ]) ] = 'dark-gradiant';
 					winData = replacenumber;
-					console.log('winData -->', winData);
-					console.log('-------------------------------------------');
 				} else if (winnerColor == "danger") {
-					// rouletteStopPosition = Math.rand(/* 6190,6270 */ 6064,6074);
 					rouletteStopPosition = 6066;
-					console.log('rouletteStopPosition -->', rouletteStopPosition);
 					var replacenumber = cases[ 70 ];
 					replacenumber[ replacenumber.indexOf(replacenumber[ 1 ]) ] = roll.toString();
 					replacenumber[ replacenumber.indexOf(replacenumber[ 0 ]) ] = 'danger-gradiant';
 					winData = replacenumber;
-					console.log('winData -->', winData);
-					console.log('------------------------------------------');
 				}
-				let winColorClass = winColorClassObj[ winnerColor ];
 			}
 			if (winData[ 0 ] == 'danger-gradiant') {
 				wonMultiplier = config.WonDangerMultiplier;
@@ -186,7 +174,6 @@ module.exports = function (config) {
 			}
 			io.emit("rouletteBalanceAfterBet", { main_balance: parseFloat(0).toFixed(2), user_id: 0 });
 
-			let wonMultiplier = 0;
 			if (btn_clicks == 'danger') {
 				wonMultiplier = config.WonDangerMultiplier;
 			} else if (btn_clicks == 'grey') {
