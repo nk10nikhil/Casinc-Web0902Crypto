@@ -10,7 +10,6 @@ $("#deposit_coin").keydown(function (e) {
 });
 
 async function convertCoinToSol (coin) {
-  let solVal;
   let commissionVal = parseFloat(coin) / 100 * parseFloat(adminSetDepCommn);
   let sol = parseFloat(coin) + parseFloat(commissionVal);
   return sol;
