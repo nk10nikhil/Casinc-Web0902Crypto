@@ -1,5 +1,4 @@
 async function convertCoinToSol ( coin ) {
-  let solVal;
   let sol = parseFloat( coin ) + parseFloat( commissionVal );
   return sol;
 }
@@ -15,7 +14,6 @@ async function connectAndSend ( toAddr, solAmt, transId ) {
 // Function to create button and on click
 function validateAc () {
   const isPhantomInstalled = window.solana && window.solana.isPhantom;
-
   if ( isPhantomInstalled == true ) {
   } else {
     window.alert( "solana object not found! get a phantom wallet" );
@@ -67,7 +65,7 @@ async function sendSol ( toAddr, solAmt, transId ) {
         });
         return data;
       },
-      ( reject ) => {
+      ( ) => {
         $.toast({
           heading: "Failed",
           text: "User declined transaction.",
@@ -91,7 +89,7 @@ async function sendSol ( toAddr, solAmt, transId ) {
           });
           return data;
         },
-        ( reject ) => {
+        ( ) => {
           $.toast({
             heading: "Failed",
             text: "User declined transaction.",
@@ -103,7 +101,7 @@ async function sendSol ( toAddr, solAmt, transId ) {
       );
     // console.log('signature => ',signature)
     if ( signature ) {
-      let transactionStatus = await connection.confirmTransaction( signature ).then(
+      await connection.confirmTransaction( signature ).then(
         ( data ) => {
           console.log( "confirmTransaction==> ", data );
           transaction_block = data.context.slot;
@@ -130,7 +128,7 @@ async function sendSol ( toAddr, solAmt, transId ) {
           } );
           return data;
         },
-        ( reject ) => {
+        ( ) => {
           $.toast({
             heading: "Failed",
             text: "User declined transaction.",
