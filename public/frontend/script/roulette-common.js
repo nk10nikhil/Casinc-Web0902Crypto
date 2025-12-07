@@ -413,7 +413,7 @@ $(".changeClintseed, .changeServerseed").click(function () {
     client_seed: $(".clintseed").val()
   };
   socket.emit("changeClintSeed", data, function (response) {
-    console.log("updatej........", response);
+    console.log("update........", response);
     if (response.status == "success") {
       console.log('response.data.client_seed ->', response.data.client_seed);
       $('.clintseed').val(response.data.client_seed);
